@@ -195,7 +195,7 @@ func UpRun(r *cmd.Root, c *cmd.Sub) {
 		dst := dstIP.String()
 
 		// Check route table for destination address.
-		for route, _ := range cfg.Routes {
+		for route := range cfg.Routes {
 			_, network, _ := net.ParseCIDR(route)
 			if network.Contains(dstIP) {
 				src := net.IPv4(packet[12], packet[13], packet[14], packet[15])
